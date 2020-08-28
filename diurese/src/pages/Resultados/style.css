@@ -1,0 +1,42 @@
+#resultados {
+    width: 500px;
+}
+
+.textarea-group {
+    color: var(--white);
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 26px;
+    width: 100%;
+}
+
+.textarea-group .group-textarea {
+    background: #1A1A1A;
+    border: 1px solid #5E5E5E;
+    color: var(--white);
+    font-size: 15px;
+    font-family: var(--main-font);
+    resize: none;
+    padding: 10px;
+    width: 100%;
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+/* Track */
+::-webkit-scrollbar-track {
+    background: var(--main-black);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: var(--sec-black);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #3D3D3D;
+}

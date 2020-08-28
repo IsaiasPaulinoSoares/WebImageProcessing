@@ -1,0 +1,18 @@
+.btn {
+    background: var(--purple);
+    border-radius: 6px;
+    border: 1px solid var(--purple);
+    color: var(--white);
+    cursor: pointer;
+    display: block;
+    margin: 0 auto;
+    padding: 9px 12px;
+    text-align: center;
+    transition: all .3s;
+    width: 100px;
+  }
+  
+  .btn:hover {
+    background: transparent;
+    border: 1px solid var(--white);
+  }
