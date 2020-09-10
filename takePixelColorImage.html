@@ -8,38 +8,51 @@ Your browser does not support the HTML5 canvas tag.</canvas>
     <input type="file" name="" id="">
 
     <script>
-        var b64 = '';
-        var input = document.querySelector('input[type=file]');
+        var input = document.querySelector('input[type=file]'),
+            img = document.getElementById("scream"),
+            b64 = '',
+            inicialB64 = 'data:image/png;base64,',
+            corpoB64 = '',
+            red = 0,
+            green = 0,
+            blue = 0;
 
-        input.onchange = function() {
+        input.onchange = async function() {
             var file = input.files[0],
-                reader = new FileReader(),
-                inicialB64 = 'data:image/png;base64,';
+                reader = new FileReader();
 
-            reader.onloadend = async function() {
-                var corpoB64 = reader.result.replace(/^data:.+;base64,/, '');
+            reader.onloadend = function() {
+                corpoB64 = reader.result.replace(/^data:.+;base64,/, '');
 
-                b64 = await inicialB64 + corpoB64;
-
-                var img = document.getElementById("scream");
+                b64 = inicialB64 + corpoB64;
                 img.src = b64;
-
-                var c = document.getElementById("myCanvas");
-                var ctx = c.getContext("2d");
-
-                ctx.drawImage(img, 0, 0);
-                var imgData = ctx.getImageData(0, 0, c.width, c.height);
-
-                red = imgData.data[0];
-                green = imgData.data[1];
-                blue = imgData.data[2];
-                alpha = imgData.data[3];
-
-                alert(red + " " + green + " " + blue);
             };
 
             reader.readAsDataURL(file);
+
+            capturarPixel(img);
         };
+
+        function capturarPixel(img) {
+            var c = document.getElementById("myCanvas");
+            var ctx = c.getContext("2d");
+
+            ctx.drawImage(img, 0, 0);
+            imgData = ctx.getImageData(0, 0, c.width, c.height);
+
+            var size = imgData.data;
+
+            for (var i = 0; i <= size.length - 1; i += 4) {
+                if (imgData.data[i] != 0) {
+                    red = imgData.data[i];
+                    green = imgData.data[i + 1];
+                    blue = imgData.data[i + 2];
+                    alpha = imgData.data[i + 3];
+                }
+            }
+
+            alert(red + " " + green + " " + blue);
+        }
     </script>
 
 </body>

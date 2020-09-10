@@ -1,0 +1,30 @@
+{
+    "name": "web-image-processing",
+    "version": "1.0.0",
+    "description": "",
+    "main": "teste.js",
+    "scripts": {
+        "start": "nodemon src/server.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/IsaiasPaulinoSoares/web-image-processing.git"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/IsaiasPaulinoSoares/web-image-processing/issues"
+    },
+    "homepage": "https://github.com/IsaiasPaulinoSoares/web-image-processing#readme",
+    "dependencies": {
+        "express": "^4.17.1",
+        "get-image-colors": "^2.0.1",
+        "get-pixels": "^3.3.2",
+        "knex": "^0.21.5",
+        "sqlite3": "^5.0.0"
+    },
+    "devDependencies": {
+        "nodemon": "^2.0.4"
+    }
+}
