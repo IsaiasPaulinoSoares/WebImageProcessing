@@ -9,7 +9,7 @@ xlsxFile('./uploads/red.xlsx').then((rows) => {
     //console.log(rows[1][2]);
     todo = rows;
     var array = []
-    for (var e = 99 * 7; e <= todo.length - 1; e++) {
+    for (var e = 99 * 2; e <= todo.length - 1; e++) {
         const R = todo[e][0],
             G = todo[e][1],
             B = todo[e][2]
