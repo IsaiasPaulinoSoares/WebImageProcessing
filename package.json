@@ -4,7 +4,7 @@
     "description": "",
     "main": "teste.js",
     "scripts": {
-        "start": "nodemon index.js",
+        "start": "nodemon src/server.js",
         "knex:migrate": "npx knex migrate:latest --knexfile knexfile.js migrate:latest"
     },
     "repository": {
