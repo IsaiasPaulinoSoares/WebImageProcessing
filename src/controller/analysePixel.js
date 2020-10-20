@@ -3,8 +3,8 @@ const connection = require('../database/connection')
 
 var getPixels = require('get-pixels');
 var colorYellow = 0, colorRed = 0, colorPurple = 0, colorOrange = 0, colorGreen = 0;
-var colorSum = [],
-    colorsName = ['yellow', 'red', 'purple', 'orange', 'green'];
+
+var colorsName = ['yellow', 'red', 'purple', 'orange', 'green'];
 
 module.exports = {
     async index(req, res) {
@@ -24,6 +24,7 @@ module.exports = {
     }
 }
 async function teste(R, G, B) {
+    var colorSum = [],
     colorYellow = await connection('yellow')
         .whereBetween('R', [R - 20, R + 20])
         .whereBetween('G', [G - 50, G + 50])
@@ -57,8 +58,9 @@ async function teste(R, G, B) {
     var maior = Math.max.apply(null, colorSum);
     var casa = 0;
     for (var i = 0; i <= colorSum.length - 1; i++) {
-        if (colorSum[i] == maior)
+        if (colorSum[i] == maior) {
             casa = i;
+        }
     }
     console.log(colorsName[casa])
 }
