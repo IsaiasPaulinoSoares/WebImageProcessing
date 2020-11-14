@@ -1,6 +1,8 @@
 const path = require('path')
 const connection = require('../database/connection')
 
+const fs = require('fs')
+
 var getPixels = require('get-pixels')
 
 var colorYellow = 0, colorRed = 0, colorPurple = 0, colorOrange = 0, colorGreen = 0;
@@ -25,9 +27,18 @@ module.exports = {
                 //console.log(pixelArray)
                 await searchOnDataBase();
                 await takeColor();
+                await deleteImage();
             }
         });
     }
+}
+
+function deleteImage(){
+    fs.unlink(path.join(__dirname, '..','..','uploads','last.jpg'), function(err){
+            if(err){
+                throw err;	
+            }else{}
+    })
 }
 
 function takeColor(){
